@@ -1,7 +1,7 @@
 ---
 theme: academic
 highlighter: shiki
-title: 00-Introduction
+title: Ics Seminar Slides
 info: |
   ICS 2025 Fall Slides
   Inspired by Arthals
@@ -30,7 +30,7 @@ layout: cover
 
 TOC
 
-0. [Introduction](https://slide.huh.moe/00/)
+0. [Introduction](https://firefly-lh.github.io/ICS-Fall25-Slides/00/)
 1. [Data](https://slide.huh.moe/01/)
 
 ---
