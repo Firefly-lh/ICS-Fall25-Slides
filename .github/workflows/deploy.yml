@@ -1,0 +1,65 @@
+name: Deploy pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+
+      - name: Set up Chinese environment
+        run: |
+          sudo locale-gen zh_CN.UTF-8
+          echo "LANG=zh_CN.UTF-8" >> $GITHUB_ENV
+          echo "LC_ALL=zh_CN.UTF-8" >> $GITHUB_ENV
+          sudo apt-get update
+          sudo apt-get install -y fonts-lxgw-wenkai
+
+      - name: Setup @antfu/ni
+        run: npm i -g @antfu/ni
+
+      - name: Install dependencies
+        run: nci
+
+      - name: Build
+        run: nr build --base /${{github.event.repository.name}}/ --with-clicks
+
+      - name: Build for Chapter 0
+        run: nr build pages\00-Introduction.md --base /${{github.event.repository.name}}/00/ --out dist/00 --with-clicks
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
