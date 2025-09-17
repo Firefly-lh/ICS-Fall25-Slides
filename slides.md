@@ -30,7 +30,7 @@ layout: cover
 
 TOC
 
-0. [Introduction](https://firefly-lh.github.io/ICS-Fall25-Slides/00/)
+0. [Introduction](https://firefly-lh.github.io/ICS-Fall25-Slides/00-Intro/)
 1. [Data](https://slide.huh.moe/01/)
 
 ---
