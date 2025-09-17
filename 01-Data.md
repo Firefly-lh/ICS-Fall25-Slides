@@ -288,7 +288,7 @@ backgroundSize: 80%
 
 精度: float < int < double
 
-故本题选 <font color="Red">A</font>
+故本题选 <font color="Red">B</font>
 
 </div>
 
