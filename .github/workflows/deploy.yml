@@ -48,6 +48,9 @@ jobs:
       - name: Build for Chapter 1
         run: nr build 01-Data.md --base /${{github.event.repository.name}}/01-Data/ --out dist/01-Data --with-clicks
 
+      - name: Build for Chapter 2
+        run: nr build 02-Machine_Prog_1.md --base /${{github.event.repository.name}}/02-Machine_Prog_1/ --out dist/02-Machine_Prog_1 --with-clicks
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 

@@ -32,6 +32,7 @@ TOC
 
 0. [Introduction](https://firefly-lh.github.io/ICS-Fall25-Slides/00-Intro/)
 1. [Data](https://firefly-lh.github.io/ICS-Fall25-Slides/01-Data/)
+2. [Machine prog I](https://firefly-lh.github.io/ICS-Fall25-Slides/02-Machine_Prog_1/)
 
 ---
 layout: end
