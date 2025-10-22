@@ -34,6 +34,7 @@ TOC
 1. [Data](https://firefly-lh.github.io/ICS-Fall25-Slides/01-Data/)
 2. [Machine prog I](https://firefly-lh.github.io/ICS-Fall25-Slides/02-Machine_Prog_1/)
 3. [Machine prog II](https://firefly-lh.github.io/ICS-Fall25-Slides/03-Machine_Prog_2/)
+4. [Processor Arch I](https://firefly-lh.github.io/ICS-Fall25-Slides/04-Processor_Arch_1/)
 
 ---
 layout: end
