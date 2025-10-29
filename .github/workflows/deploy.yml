@@ -57,6 +57,9 @@ jobs:
       - name: Build for Chapter 4
         run: nr build 04-Processor_Arch_1.md --base /${{github.event.repository.name}}/04-Processor_Arch_1/ --out dist/04-Processor_Arch_1 --with-clicks
 
+      - name: Build for Chapter 5
+        run: nr build 05-Processor_Arch_2.md --base /${{github.event.repository.name}}/05-Processor_Arch_2/ --out dist/05-Processor_Arch_2 --with-clicks
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
