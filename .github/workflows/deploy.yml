@@ -60,6 +60,9 @@ jobs:
       - name: Build for Chapter 5
         run: nr build 05-Processor_Arch_2.md --base /${{github.event.repository.name}}/05-Processor_Arch_2/ --out dist/05-Processor_Arch_2 --with-clicks
 
+      - name: Build for Chapter 6
+        run: nr build 06-Cache.md --base /${{github.event.repository.name}}/06-Cache/ --out dist/06-Cache --with-clicks
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
