@@ -36,7 +36,7 @@ TOC
 3. [Machine prog II](https://firefly-lh.github.io/ICS-Fall25-Slides/03-Machine_Prog_2/)
 4. [Processor Arch I](https://firefly-lh.github.io/ICS-Fall25-Slides/04-Processor_Arch_1/)
 5. [Processor Arch II](https://firefly-lh.github.io/ICS-Fall25-Slides/05-Processor_Arch_2/)
-6. [Cache & Optimization](https://firefly-lh.github.io/ICS-Fall25-Slides/06-Cache_Optimization/)
+6. [Cache](https://firefly-lh.github.io/ICS-Fall25-Slides/06-Cache_Optimization/)
 
 ---
 layout: end
