@@ -37,6 +37,7 @@ TOC
 4. [Processor Arch I](https://firefly-lh.github.io/ICS-Fall25-Slides/04-Processor_Arch_1/)
 5. [Processor Arch II](https://firefly-lh.github.io/ICS-Fall25-Slides/05-Processor_Arch_2/)
 6. [Cache](https://firefly-lh.github.io/ICS-Fall25-Slides/06-Cache/)
+7. [Linking & ECF I](https://firefly-lh.github.io/ICS-Fall25-Slides/06-Cache/)
 
 ---
 layout: end

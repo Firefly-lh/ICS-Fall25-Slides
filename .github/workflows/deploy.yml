@@ -63,6 +63,9 @@ jobs:
       - name: Build for Chapter 6
         run: nr build 06-Cache.md --base /${{github.event.repository.name}}/06-Cache/ --out dist/06-Cache --with-clicks
 
+      - name: Build for Chapter 7
+        run: nr build 07-Linking_ECF_1.md --base /${{github.event.repository.name}}/07-Linking_ECF_1/ --out dist/07-Linking_ECF_1 --with-clicks
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
