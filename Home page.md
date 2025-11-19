@@ -30,6 +30,9 @@ layout: cover
 
 TOC
 
+<div grid="~ cols-2 gap-12">
+<div>
+
 0. [Introduction](https://firefly-lh.github.io/ICS-Fall25-Slides/00-Intro/)
 1. [Data](https://firefly-lh.github.io/ICS-Fall25-Slides/01-Data/)
 2. [Machine prog I](https://firefly-lh.github.io/ICS-Fall25-Slides/02-Machine_Prog_1/)
@@ -37,7 +40,15 @@ TOC
 4. [Processor Arch I](https://firefly-lh.github.io/ICS-Fall25-Slides/04-Processor_Arch_1/)
 5. [Processor Arch II](https://firefly-lh.github.io/ICS-Fall25-Slides/05-Processor_Arch_2/)
 6. [Cache](https://firefly-lh.github.io/ICS-Fall25-Slides/06-Cache/)
-7. [Linking & ECF I](https://firefly-lh.github.io/ICS-Fall25-Slides/06-Cache/)
+
+</div>
+<div>
+
+7. [Linking & ECF I](https://firefly-lh.github.io/ICS-Fall25-Slides/07-Linking_ECF_1/)
+8. [ECF II](https://firefly-lh.github.io/ICS-Fall25-Slides/08-ECF_2/)
+
+</div>
+</div>
 
 ---
 layout: end
