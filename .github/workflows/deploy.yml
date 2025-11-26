@@ -66,6 +66,9 @@ jobs:
       - name: Build for Chapter 7
         run: nr build 07-Linking_ECF_1.md --base /${{github.event.repository.name}}/07-Linking_ECF_1/ --out dist/07-Linking_ECF_1 --with-clicks
 
+      - name: Build for Chapter 8
+        run: nr build 08-ECF_2.md --base /${{github.event.repository.name}}/08-ECF_2/ --out dist/08-ECF_2 --with-clicks
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
