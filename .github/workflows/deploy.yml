@@ -72,6 +72,9 @@ jobs:
       - name: Build for Chapter 9
         run: nr build 09-System_IO_VM_1.md --base /${{github.event.repository.name}}/09-System_IO_VM_1/ --out dist/09-System_IO_VM_1 --with-clicks
 
+      - name: Build for Chapter 10
+        run: nr build 10-VM_2.md --base /${{github.event.repository.name}}/10-VM_2/ --out dist/10-VM_2 --with-clicks
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 

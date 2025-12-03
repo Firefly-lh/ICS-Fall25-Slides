@@ -47,6 +47,7 @@ TOC
 7. [Linking & ECF I](https://firefly-lh.github.io/ICS-Fall25-Slides/07-Linking_ECF_1/)
 8. [ECF II](https://firefly-lh.github.io/ICS-Fall25-Slides/08-ECF_2/)
 9. [System IO & VM I](https://firefly-lh.github.io/ICS-Fall25-Slides/09-System_IO_VM_1/)
+10. [VM II](https://firefly-lh.github.io/ICS-Fall25-Slides/10-VM_2/)
 
 </div>
 </div>
