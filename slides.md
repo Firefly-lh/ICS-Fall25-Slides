@@ -1,7 +1,7 @@
 ---
 theme: academic
 highlighter: shiki
-title: 11-Dynamic Memory Allocation
+title: Ics Seminar Slides
 info: |
   ICS 2025 Fall Slides
   Inspired by Arthals
@@ -16,202 +16,48 @@ mdc: true
 layout: cover
 ---
 
-# 11-Dynamic Memory Allocation
+# ICS Seminar #9 Slides {.font-bold.text-sky}
 
-信息与计算科学 连昊
+信息与计算科学 连昊 {.!text-gray-500}
 
----
+基于[Slidev](https://sli.dev/)制作的ICS小班课课件, 主要收录了一些自己总结的重点知识和练习
 
-# 作业题
-
-Homeworks
-
-9.15 
-
-**块大小的计算:** (载荷 + 4) 向上取整到8的倍数
-
-`8, 0x9` `16, 0x11`, `24, 0x19`, `32, 0x21`
-
-9.16
-
-均为`16`, 注意: **只有在空闲块中才需要维护8字节的指针**
+基础知识部分, 你可以参考[Arthals的课件](https://slide.huh.moe/1)
 
 ---
 
-# 作业题
-
-Homeworks
-
-9.19
-
-- (1)
-  - A. **正确.** 考虑申请一个$2^k+1$的内存, 其分配了一个大小为$2^{k+1}$的块
-  - B. **错误.** 从时间复杂度上看均为O(n), 从平均意义上看, 首次适配平均需要查找一半的链表, 而最佳适配总是要查找完整的链表(当然这也和链表的组织方式有关)
-  - C. **错误.** 没有这个要求, 边界标记的意义只是在于方便合并
-  - D. **错误.** 几乎所有内存分配算法都会产生外部碎片
-
----
-
-# 作业题
-
-Homeworks
-
-9.19
-
-- (2)
-  - A. **错误.** 块大小递减的情况下, 首次适配的效率反而是最高的
-  - B. **错误.** 链表组织和内存分配方法的组合没有任何要求, 当然如果能按块大小递增是最好的
-  - C. **错误.** 选择匹配的最小的空闲块
-  - D. **正确.** 第一个找到的即为最优的
-
-(3) `B`  参照课本9.10.3节
-
----
-
-# 关于Lab测试
-
-- **时间:12月15日(下周一), 随堂测试**
-- 形式: 笔试, 考两节课, **暂定为50道选择题**, 每题2分
-- 范围: 大家此前已经完成的六个lab + Malloc lab(不确定, 有待通知)
-- 建议的复习方向
-  - 各个lab的内容以及具体的完成方式(梳理下自己是怎么完成的, 如果有学习别人的地方也尽量搞懂原理)
-    - 未完成的lab可以配合Arthals的博客进行复习
-  - lab中使用到的部分工具(如gdb)的作用和调用方式
-  - lab和课内知识相结合的内容
-
----
-
-# 重点知识纲要
-
-- 动态内存分配
-  - 这一块的有关知识大家可以参考[这个视频](https://www.bilibili.com/video/BV1314y1h7PQ/?spm_id_from=333.337.search-card.all.click), 再自行阅读课本, 相信大家在完成Malloc Lab后能够对这块内容比较熟悉
-  - 具体的, 你需要熟悉以下几块内容
-    - 堆和动态分配的基本概念, 分配器的要求和目标, 以及常用函数(`malloc` `calloc` `realloc` `free`)
-    - 碎片: 内部碎片(已分配块的大小 > 有效载荷, **发生在一个块内部**)和外部碎片(存在大小总和足够的零散空闲块, 但不存在大小足够的单个空闲块, **发生在块与块之间**)
-    - 空闲链表: 隐式 -> 显式 -> 分离
-    - 块的组织(头部, 脚部), 对块的操作(分割, 合并)以及块大小的计算(作业题)
-- 垃圾回收和与内存有关的错误
-  - 考察相对较少, 自行阅读课本, 主要关注下Mark & Sweep部分
-
----
-
-# 关于Malloc Lab
-
-- **截止日期: 12月18日(下周四)**
-  - 但为了Lab测试, 推荐大家尽早开始
-- 推荐的实现方式: 分离空闲链表+首次适配 (大部分基准分)
-- 其它的优化方式 (仅供参考, 实现方式不唯一)
-  - 提高内存利用率 (~95pts)
-    - 对分配块去尾, 同时在每一个块的开头使用额外的1bit记录前一个块是否被分配 (因为分配块的大小不需要被下一个块使用)
-    - 维护单向空闲链表而不是双向链表, 每个空闲块可以节省一个字节, 每次删除节点时从头开始查找 (这会带来一定的性能损耗, 但是可以接受)
-  - 提高吞吐量
-    - 调参 (分离列表的划分范围, `CHUNK_SIZE`等)
-    - 代码实现层面的优化 (比如把比较搜索改为二分搜索)
-    - 面向测试数据优化 (如果你想卷到满分, 你可以参考Arthals的博客获取这部分技巧)
-
----
-
-# 题目练习
-
-T1 (出处: 2024期末)
-
-(1) 
-
-答案: `C` `0x11`
-
-解析: 块大小为4+5=9, 向上取整到8的倍数为16, 故A处的一个字节为`0x10 | 0x1 = 0x11`
-
-(2)
-
-答案: `C`
-
-解析: 对这n个独立的内存块需要逐一进行合并操作, 时间复杂度至少为O(n)
-
-(3)
-
-答案: `A` `1/16`
-
-解析: 在有尾部的情况下, 合并单个空闲块只需要处理前后块, 时间复杂度为O(1); 
-      <br> $\quad \quad$ 当`malloc(1)`时, 块大小为8+1=9, 向上取整到8的倍数为16, 利用率最小为`1/16`
-
----
-
-# 题目练习
-
-T1 (出处: 2024期末)
-
-(4) 
-
-答案: `A`
-
-解析: 注意**已分配块的有效载荷至少为1**, 块大小至少为4+1=5, 向上取整到8的倍数为8, 正好足够存放头部和脚部
-
-(5) 
-
-答案: `12` `0x10` `12`
-
-解析: 小明的内存分配器实现了一个类似尾部的机制. 根据地址计算, `*((char*)p1 + 24 ) = 0x10;` 修改了第一个分配块尾部四字节的最低一字节为`0x10`
-于是我们要做的是伪装构造一个块大小为16的空闲块, 这要求我们在`p1 + 24 - 12 = p1 + 12`的位置构造一个相同的头部`0x10`.
-
----
-
-# 题目练习
-
-T2 (出处: 2024期末)
-
-(1)
-
-答案: `5` `6`
-
-解析: 重点在于`dup2`和`dup`函数不会关闭文件描述符, 只会将不同的文件描述符指向同一份打开文件表条目. 因此, 对应关系为`fd[0]=3`, `fd[1]=4`, 子进程中`fd[2]=5`,
-父进程中`fd[1]`被`dup`覆盖为5, 而后`fd[2]=6`
-
-(2)
-
-答案: `HarryVoldemortHermioneRon`
-
-解析: 这里的所有文件描述符都指向同一个文件, 由于`wait`的存在, 所有的`write`操作都是有序的
-
----
-
-# 题目练习
-
-T2 (出处: 2024期末)
-
-(3)
-
-原因: 由于父子进程间的执行顺序不确定, 可能子进程还没调用`signal`函数将信号和自定义的处理程序绑定, 就已经收到了父进程发送的信号
-
-解决方案: 把`signal(SIGUSR1, handler1);`和`signal(SIGUSR2, handler2);` 两行提至fork前
-
-(4)
-
-答案: `①⑦②④②⑥`
-
-解析: 阅读题目, 容易发现我们要做的是在收到`SIGUSR1`信号后手动阻塞`SIGUSR2`信号. **(why?: 回忆下, 信号处理程序是可以被打断的)** 具体的指令选择考察大家有没有好好做Shell Lab, 我们应当先获取一个无阻塞的mask(使用`Sigfillset`), 而后手动阻塞`SIGUSR2`信号, 最后复原.
-
----
-
-# 题目练习
-
-T2 (出处: 2024期末)
-
-(5)
-
-答案: `3, 4, 5, 6, 7, 8, 9` `6, 7, 8, 9`
-
-解析: 阅读代码, 这里产生了$2^{10}$个进程, 简单分析可以发现, 这1024个进程会得到1024个buffer, 长度不等, 唯一的要求是buffer中的数字应当递增. 最后将这些
-buffer按任意顺序写入文件中(注意是同一个描述符的副本, 写的时候会覆盖). 于是, `content[3]`对应的位置, 至少是长为4的buffer才能对其进行修改, 其对应的数字至少为3,
-`content[6]`同理.
-
-(6)
-
-答案: `10!`
-
-解析: 在读懂(5)小问的基础上, 本题不难, 写入文本的第一位可能为0-9, 第二位可能为1-9, 以此类推, 共有10!种可能.
+# 目录
+
+TOC
+
+<div grid="~ cols-2 gap-12">
+<div>
+
+0. [Introduction](https://firefly-lh.github.io/ICS-Fall25-Slides/00-Intro/)
+1. [Data](https://firefly-lh.github.io/ICS-Fall25-Slides/01-Data/)
+2. [Machine prog I](https://firefly-lh.github.io/ICS-Fall25-Slides/02-Machine_Prog_1/)
+3. [Machine prog II](https://firefly-lh.github.io/ICS-Fall25-Slides/03-Machine_Prog_2/)
+4. [Processor Arch I](https://firefly-lh.github.io/ICS-Fall25-Slides/04-Processor_Arch_1/)
+5. [Processor Arch II](https://firefly-lh.github.io/ICS-Fall25-Slides/05-Processor_Arch_2/)
+6. [Cache](https://firefly-lh.github.io/ICS-Fall25-Slides/06-Cache/)
+
+</div>
+<div>
+
+7. [Linking & ECF I](https://firefly-lh.github.io/ICS-Fall25-Slides/07-Linking_ECF_1/)
+8. [ECF II](https://firefly-lh.github.io/ICS-Fall25-Slides/08-ECF_2/)
+9. [System IO & VM I](https://firefly-lh.github.io/ICS-Fall25-Slides/09-System_IO_VM_1/)
+10. [VM II](https://firefly-lh.github.io/ICS-Fall25-Slides/10-VM_2/)
+11. [Dynamic Memory Allocation](https://firefly-lh.github.io/ICS-Fall25-Slides/11-DMA/)
+
+</div>
+</div>
 
 ---
 layout: end
 ---
 
-# Thanks for listening!
+Thanks!
+
+
+
