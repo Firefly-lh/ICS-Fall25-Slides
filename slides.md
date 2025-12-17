@@ -1,7 +1,7 @@
 ---
 theme: academic
 highlighter: shiki
-title: 12-Computer Network
+title: Ics Seminar Slides
 info: |
   ICS 2025 Fall Slides
   Inspired by Arthals
@@ -16,106 +16,49 @@ mdc: true
 layout: cover
 ---
 
-# 12-Computer Network
+# ICS Seminar #9 Slides {.font-bold.text-sky}
 
-信息与计算科学 连昊
+信息与计算科学 连昊 {.!text-gray-500}
 
----
+基于[Slidev](https://sli.dev/)制作的ICS小班课课件, 主要收录了一些自己总结的重点知识和练习
 
-# 关于Lab测试
-- 整体情况
-  - 作为第一年试水, 部分题目比较偏, 题量也比较大
-  - 课程平均分67, 中位数68
-- 希望大家
-  - **考完了就放下, 借助考试简单分析下自己的知识漏洞, 全力备战期末考**
-- 目前可供改分的题目
-  - 22题: 4个选项均给分 
+基础知识部分, 你可以参考[Arthals的课件](https://slide.huh.moe/1)
 
 ---
 
-# 友情提醒
-- 期末考试时间: **12月29日(下下周一)**
-  - 考试范围: 全书, 此前没考试的部分(网络和并发编程)会相对占据更多比重
-    - 内容很多, 请及时开始复习~
-  - 期末主体还是由老师们出题, 推荐大家参考前两次考试, 复习多**注重基础**
-    - 课本 > 研讨题和作业题 > 往年题
-  - 期末考试可能并不简单, 请做好心理准备, **不要抱有侥幸心理**
-- 期末季, 复习之余请及时完成Lab
-  - Malloc Lab截止日期: **12月18日(明晚)**
-  - Proxy Lab截止日期: **12月25日(下周四晚)**
-- 关于Proxy Lab
-  - AutoLab目前存在一定问题, 在本地满分的程序交到网站上可能不是满分, **请确保你上交的程序在本地能够获得满分**, 后续会集体重测/助教手动打分
+# 目录
 
----
+TOC
 
-# 重点知识纲要
-- 网络的基本模型: 客户端(client)和服务端(server)模型
-  - 每个客户端和服务端都是**进程**, 而不是主机/机器(因此你可以在本机的两个进程间通信)
-- 网络: 可以理解为支持较远距离数据传输的I/O设备
-  - 局域网(LAN): 主机 -> 集线器(不加分辨的转发数据到端口) -> 桥(有选择的传输数据)
-    - 最流行的局域网: 以太网(Ethernet)
-    - 发送数据(帧)时, 发送一个帧头+有效载荷
-  - 广域网(WAN): 由路由器将多个局域网相连接, 支持更大范围的通信
-- 进一步, 通过路由器将多个局域网和广域网连接, 便组成了一个**互联网络(internet)**
-  - 注: internet是一个普适概念, 而**Internet(因特网)** 是internet的具体实践
-- 挑战: 不同主机可能采用的是不兼容的网络, 如何在不兼容的网络间传递数据?
-  - 解决方案: 一套公共的协议, 约定了命名机制(每个主机有唯一的互联网络地址)和传输机制(如何封装数据进行传输, 即**互联网络包**)
-    - 这一部分, 主要理解下课本P646页图11-7的数据传输流程即可 (数据 $\subseteq$ 互联网络包 $\subseteq$ 帧)
+<div grid="~ cols-2 gap-12">
+<div>
 
----
+0. [Introduction](https://firefly-lh.github.io/ICS-Fall25-Slides/00-Intro/)
+1. [Data](https://firefly-lh.github.io/ICS-Fall25-Slides/01-Data/)
+2. [Machine prog I](https://firefly-lh.github.io/ICS-Fall25-Slides/02-Machine_Prog_1/)
+3. [Machine prog II](https://firefly-lh.github.io/ICS-Fall25-Slides/03-Machine_Prog_2/)
+4. [Processor Arch I](https://firefly-lh.github.io/ICS-Fall25-Slides/04-Processor_Arch_1/)
+5. [Processor Arch II](https://firefly-lh.github.io/ICS-Fall25-Slides/05-Processor_Arch_2/)
+6. [Cache](https://firefly-lh.github.io/ICS-Fall25-Slides/06-Cache/)
 
-# 重点知识纲要
-- 因特网(Internet, 最著名的互联网络实现)
-  - TCP/IP协议**族**(即多个不同功能的协议, 由内核模式维护)
-    - **IP协议**: 定义了基本的命名方法(IP地址)和传输机制(发送数据报), 它是**不可靠的**, 不保证发送的数据一定被接收, 不会恢复和重传丢失的数据
-    - **UDP协议**: 对IP协议的拓展, 允许进程间进行数据传送, 但依然**不可靠**(因为只是单向发送, 没有建立连接)
-    - **TCP协议**: 提供了进程间可靠的全双工的(双向的)连接
-    - 小细节
-      - IP协议是**唯一的**网络层协议, TCP和UDP协议都是传输层协议
-      - TCP传输是可靠的, 但是相比之下传输速度也会更慢; 此外, TCP传输是点对点的, 因此不能进行广播 **(Lab测试T47)**
+</div>
+<div>
 
----
+7. [Linking & ECF I](https://firefly-lh.github.io/ICS-Fall25-Slides/07-Linking_ECF_1/)
+8. [ECF II](https://firefly-lh.github.io/ICS-Fall25-Slides/08-ECF_2/)
+9. [System IO & VM I](https://firefly-lh.github.io/ICS-Fall25-Slides/09-System_IO_VM_1/)
+10. [VM II](https://firefly-lh.github.io/ICS-Fall25-Slides/10-VM_2/)
+11. [Dynamic Memory Allocation](https://firefly-lh.github.io/ICS-Fall25-Slides/11-DMA/)
+12. [Computer Network](https://firefly-lh.github.io/ICS-Fall25-Slides/12-Network/)
 
-# 重点知识纲要
-
-- IP地址: 每个主机被映射到唯一的32位IP地址
-  - 课本P647旁注: IPv4提供了32位IP地址, IPv6提供了128位IP地址 **(Lab测试T46)**, 课程中只考虑IPv4
-  - IP地址存储在`in_addr`结构中, 使用统一定义的**大端序**, 并且有点分十进制和十六进制两种表示
-    - 在Linux中, 你可以用`hostname -i`查看主机的点分十进制地址, 其是以字符串形式存储的
-    - 课本P648页提供了大小端数据转换, 以及点分十进制和十六进制数据转换的辅助函数, 你需要大体上**把功能和名称一一对应**
-- 域名: 因为IP地址太难记, 因此这组IP地址被映射到一组相对好记忆的域名
-  - 域名是一串用句点分隔的单词(可以理解为网址), 其被**反向组织为树状结构**, 由**DNS(域名系统)**负责维护域名和IP地址的映射
-  - 域名的使用是自由的: 一个域名可以映射到多个IP地址, 多个域名可以映射到一个IP地址, 域名也可以不映射到任何IP地址 **(Lab测试T50)**
-  - 本机有本地域名`localhost`, 总是返回`127.0.0.1`
-
----
-
-# 重点知识纲要
-
-- 因特网连接: 点对点的, 保证了数据传输的可靠性
-  - 连接的端点是一个套接字, 其有相应的套接字地址, 形式为"地址:端口"
-    - 端口是一个16位整数, 一般通信的端口由内核自动分配, 与知名服务器端口通信使用知名端口, 由`/etc/services`文件维护
-      - 稍微记忆下: 22(SSH), 25(电子邮件), 80(HTTP Web), 433(HTTPS Web)
-    - why端口?: 同一台主机可能同时进行多个连接
-  - 两个套接字地址构成了一个**套接字对**, 唯一确定了一个连接
-- 套接字接口
-  - **重点掌握**: 图11-12(可能会挖空考察, 当中涉及的各个函数也要熟悉api)
-  - 这一部分的内容比较杂, 可以结合Arthals的课件, proxylab的实践和课本阅读进行掌握, 在此不一一列举
-
----
-
-# Lab测试讲解
-
-这考的啥玩意啊x
-
-48. `\24`表示子网掩码长度为24位, 因此主机位位数为32-24=8位, 可用主机地址为$2^8 - 2$=254 (除去全0的网络地址和全1的广播地址)
-    
-49. 这里的`0`和`10`和`110`开头指的都是十六进制的情况, 对应的点分十进制按首位128和192划分, A类地址中`10.xxx.xxx.xxx`是预留的私有地址, 不能参与路由.
-
-50. D 因为底层都是链表, 所以逐个free也行 ~~(老师是这么说的, 感觉有点抽象)~~
+</div>
+</div>
 
 ---
 layout: end
 ---
 
-# Thanks for listening!
+Thanks!
+
+
+
