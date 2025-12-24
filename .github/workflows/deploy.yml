@@ -81,6 +81,9 @@ jobs:
       - name: Build for Chapter 12
         run: nr build 12-Network.md --base /${{github.event.repository.name}}/12-Network/ --out dist/12-Network --with-clicks
 
+      - name: Build for Chapter 13
+        run: nr build 13-Concurrent.md --base /${{github.event.repository.name}}/13-Concurrent/ --out dist/13-Concurrent --with-clicks
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 

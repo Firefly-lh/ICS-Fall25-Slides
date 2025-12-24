@@ -50,6 +50,7 @@ TOC
 10. [VM II](https://firefly-lh.github.io/ICS-Fall25-Slides/10-VM_2/)
 11. [Dynamic Memory Allocation](https://firefly-lh.github.io/ICS-Fall25-Slides/11-DMA/)
 12. [Computer Network](https://firefly-lh.github.io/ICS-Fall25-Slides/12-Network/)
+13. [Concurrent Programming](https://firefly-lh.github.io/ICS-Fall25-Slides/13-Concurrent/)
 
 </div>
 </div>
